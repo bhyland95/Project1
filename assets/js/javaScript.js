@@ -1,4 +1,5 @@
-var date = "2021-09-10"
+var outboundDate = "2021-09-10"
+var returnDate = "2021-09-15"
 var currency = "USD"
 var language = "en-US"
 var country = "US"
@@ -7,7 +8,7 @@ var destination = "US"
 
 
 //SKYSCANNER API that returns routes from an origin to a destination at a specific date 
-fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/" + country + "/"+ currency +"/" +language + "/" + origin + "/" + destination + "/" + date,{
+fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/" + country + "/"+ currency +"/" +language + "/" + origin + "/" + destination + "/" + outboundDate + "?inboundpartialdate=" + returnDate,{
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
