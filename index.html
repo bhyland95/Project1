@@ -12,11 +12,12 @@
 
 <body>
 
-    <nav>
+    <nav> <!--header-->
         <div class="nav-wrapper blue lighten-2">
             <a href="#" class="brand-logo center">Travel Wise</a>
         </div>
     </nav>
+    <!--flight search input card-->
     <div class="row">
         <div class="col s12 m4 l3 xl3">
             <div class="card">
@@ -86,18 +87,25 @@
                 </nav>
                 <div id="flight-details" class="">
                     <table class="striped">
-                        <thead s6>     <!--this will be static-->
+                        <thead s6>
+                            <!--this will be static-->
                             <tr>
                                 <th>Origin - Destionaton</th>
                                 <th>Take off - Arrival</th>
-                                <th>Flight Duration<!--(number of stops)--></th>
+                                <th>Flight Duration
+                                    <!--(number of stops)-->
+                                </th>
                                 <th>Airline</th>
-                                <th>Class</th> <!--this one may be left out for purpose of a MVP-->
-                                <th>Price <!--per traveler roundtrip or oneway--></th>
+                                <th>Class</th>
+                                <!--this one may be left out for purpose of a MVP-->
+                                <th>Price
+                                    <!--per traveler roundtrip or oneway-->
+                                </th>
                             </tr>
                         </thead>
-                        <tbody>      <!--these are examples and should be dynamically created using returned information from skyscanner-->
-                            
+                        <tbody>
+                            <!--these are examples and should be dynamically created using returned information from skyscanner-->
+
                             <tr class="hoverable">
                                 <td>Salt Lake City (SLC)- Miami (MIA)</td>
                                 <td>5:15pm - 11:49pm</td>
@@ -139,13 +147,85 @@
                                 <td>Coach</td>
                                 <td>$345 (Roundtrip per traveler)</td>
                             </tr>
-                           
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <!--end of flight details-->
+    </div> 
 
+    <div class="row" id="weather-card">
+        <div class="col s12">
+            <div class="card">
+                <nav>
+                    <div class="nav-wrapper  blue darken-4">
+                        <a href="#" class="brand-logo center">4 Day Weather Forcast</a>
+                    </div>
+                </nav>
+                <div id="weather-table" class="">
+                    <table class="stripped">
+                        <thead>
+                            <tr> <!--to be dertimed how to chose what hours to display-->
+                                <th>Date</th> <!--date or day of week-->
+                                <th>hour 1</th>
+                                <th>hour 2</th>
+                                <th>hour 3</th>
+                                <th>hour 4</th>
+                                <th>hour 5</th>                               
+                                <th>hour 6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="day-1">
+                                <td>20th</td>
+                                <td>Sunny</td>
+                                <td>Sunny</td>
+                                <td>part cloudy</td>        <!--generate in JS-->
+                                <td>mostly cloudy</td>
+                                <td>showers possible</td>
+                                <td>Showers possible</td>
+                            </tr>
+
+                            <tr class="day-2">
+                                <td>21st</td>
+                                <td>Sunny</td>
+                                <td>Sunny</td>
+                                <td>mostly cloudy</td>
+                                <td>mostly cloudy</td>
+                                <td>sunny</td>
+                                <td>Sunny</td>
+                            </tr>
+
+                            <tr class="day-3">
+                                <td>22nd</td>
+                                <td>Sunny</td>
+                                <td>Sunny</td>
+                                <td>part cloudy</td>
+                                <td>rainy</td>
+                                <td>rainy</td>
+                                <td>Sunny</td>
+                            </tr>
+
+                            <tr class="day-4">
+                                <td>23rd</td>
+                                <td>Rainy</td>
+                                <td>Sunny</td>
+                                <td>part cloudy</td>
+                                <td>mostly cloudy</td>
+                                <td>rainy</td>
+                                <td>Rainy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
 </body>
 
