@@ -1,0 +1,28 @@
+.hero {
+    background-image: url(../images/seychelles-1730082_1280.jpg);
+    height: 350px;
+    background-size: cover;
+    background-position: 0rem;
+}
+
+.flight-info {
+    background-image: url(../images/airport-3511342_640.jpg);
+    background-size: cover;
+}
+
+.background {
+    background-image: url(../images/venice-3130323_1920.jpg);
+    background-size: cover;
+}
+
+@media screen and (max-width: 575px) {
+    .hero {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        background-position: center right;
+    }
+}
