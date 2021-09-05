@@ -18,7 +18,7 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col s3">
+        <div class="col s12 m4 l3 xl3">
             <div class="card">
                 <nav>
                     <div class="nav-wrapper  blue darken-4">
@@ -37,12 +37,7 @@
                         <span>One way</span>
                     </label>
                 </p>
-                <p>
-                    <label>
-                        <input class="with-gap" name="group3" type="radio" checked />
-                        <span>Multi-city</span>
-                    </label>
-                </p>
+
 
                 <!-- FROM -->
                 <div class="row">
@@ -76,66 +71,100 @@
                     <div class="col s12">
                         <button id="search-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
-                        </button>                             
+                        </button>
                     </div>
                 </div>
-             </div>
-        </div>
-        <div class="col s9">
-            <div class="card">
-            <nav>
-                <div class="nav-wrapper  blue darken-4">
-                    <a href="#" class="brand-logo center">Flight Details</a>
-                </div>
-            </nav>
-            <div id="flight-details" class="card">
-                <ul>
-                    <li>
-                        <div id="flight-data">
-                            <span class="is-visually-hidden">
-                                <div id="flight-time-input" class="">Flight Duration</div>
-                                    <div id="nonstop-input" class="">Nonstop goes here</div>
-                                    <div id="flight-price-input" class="">Price</div>
-                            </span>
-                            </li>
-                        <li>
-                            <div id="flight-origin-dest" class="">
-                                <div id="origin-dest-input" class="">Flight Origination and Destination</div>
-                                </div>  
-                            </li>
-                        <li>
-                             <div id="carrier-name" class="">
-                                <div id="carrier-name-input" class="">Carrier Name</div>
-                            </li>
-                        <li>
-                            <div id="departure-date" class="">
-                               <div id="departure-date-input" class="">Departure Date</div>
-                            </li>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
-    </div>
-           
+        <!--flight details Card-->
+        <div class="col s12 m12 l9 xl9">
+            <div class="card">
+                <nav>
+                    <div class="nav-wrapper  blue darken-4">
+                        <a href="#" class="brand-logo center">Flight Details</a>
+                    </div>
+                </nav>
+                <div id="flight-details" class="">
+                    <table class="striped">
+                        <thead s6>     <!--this will be static-->
+                            <tr>
+                                <th>Origin - Destionaton</th>
+                                <th>Take off - Arrival</th>
+                                <th>Flight Duration<!--(number of stops)--></th>
+                                <th>Airline</th>
+                                <th>Class</th> <!--this one may be left out for purpose of a MVP-->
+                                <th>Price <!--per traveler roundtrip or oneway--></th>
+                            </tr>
+                        </thead>
+                        <tbody>      <!--these are examples and should be dynamically created using returned information from skyscanner-->
+                            
+                            <tr class="hoverable">
+                                <td>Salt Lake City (SLC)- Miami (MIA)</td>
+                                <td>5:15pm - 11:49pm</td>
+                                <td>4h 34m (nonstop)</td>
+                                <td>Delta</td>
+                                <td>Coach</td>
+                                <td>$345 (Roundtrip per traveler)</td>
+                            </tr>
+
+                            <tr class="hoverable">
+                                <td>Salt Lake City (SLC)- Miami (MIA)</td>
+                                <td>3:56pm - 12:12am</td>
+                                <td>6h 16m (1 stop)</td>
+                                <td>Delta</td>
+                                <td>Coach</td>
+                                <td>$354 (Roundtrip per traveler)</td>
+                            </tr>
+                            <tr class="hoverable">
+                                <td>Salt Lake City (SLC)- Miami (MIA)</td>
+                                <td>12:00pm - 6:34pm</td>
+                                <td>4h 34m (nonstop)</td>
+                                <td>Delta</td>
+                                <td>Coach</td>
+                                <td>$345 (Roundtrip per traveler)</td>
+                            </tr>
+                            <tr class="hoverable">
+                                <td>Salt Lake City (SLC)- Miami (MIA)</td>
+                                <td>2:13pm - 7:12am +1</td>
+                                <td>14h 59m (2 stops 5hr 45m (LAX) 1h 45m (PHX) )</td>
+                                <td>American</td>
+                                <td>Coach</td>
+                                <td>$336 (Roundtrip per traveler)</td>
+                            </tr>
+                            <tr class="hoverable">
+                                <td>Salt Lake City (SLC)- Miami (MIA)</td>
+                                <td>12:00pm - 6:34pm</td>
+                                <td>4h 34m (nonstop)</td>
+                                <td>Delta</td>
+                                <td>Coach</td>
+                                <td>$345 (Roundtrip per traveler)</td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
 </body>
-            
-        
-    
-    
-    
-    
 
 
 
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./assets/js/javaScript.js"></script>
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./assets/js/javaScript.js"></script>
 </body>
 
 </html>
