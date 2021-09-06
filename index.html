@@ -123,67 +123,79 @@
                 <div class="card">
                     <nav>
                         <div class="nav-wrapper  blue darken-4">
-                            <a href="#" class="brand-logo center">4 Day Weather Forcast</a>
+                            <a href="#" class="brand-logo center">5 Day Weather Forcast</a>
                         </div>
                     </nav>
                     <div id="weather-table" class=""> <!-- this area may have to be changed away from a table in order to custom style-->
-                        <table class="stripped">
-                            <thead>
-                                <tr>
-                                    <!--to be dertimed how to chose what hours to display-->
-                                    <th>Date</th>
-                                    <!--date or day of week-->
-                                    <th>hour 1</th>
-                                    <th>hour 2</th>
-                                    <th>hour 3</th>
-                                    <th>hour 4</th>
-                                    <th>hour 5</th>
-                                    <th>hour 6</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="day-1">
-                                    <td>20th</td>
-                                    <td>Sunny</td>
-                                    <td>Sunny</td>
-                                    <td>part cloudy</td>
-                                    <!--generate in JS-->
-                                    <td>mostly cloudy</td>
-                                    <td>showers possible</td>
-                                    <td>Showers possible</td>
-                                </tr>
+                        <div class="col s12 m2">
+                            <div class="card bg-info text-light p-2 ">
+                                <p class="badge badge-light mb-1" id="date-1"></p>
+                                <h4 class="align-middle">
+                                    <img class="weather-icon" id="icon-1">
+                                    <span id="temp-1"></span> &deg;F
+                                </h4>
+                                <p class="mb-1">High: <span id="high-1"></span> &deg;F</p>
+                                <p class="mb-1">Low: <span id="low-1"></span> &deg;F</p>
+                                <p class="mb-1">Humidity: <span id="humidity-1"></span>%</p>
+                            </div>
+                        </div>
 
-                                <tr class="day-2">
-                                    <td>21st</td>
-                                    <td>Sunny</td>
-                                    <td>Sunny</td>
-                                    <td>mostly cloudy</td>
-                                    <td>mostly cloudy</td>
-                                    <td>sunny</td>
-                                    <td>Sunny</td>
-                                </tr>
+                        <!-- day 2 -->
+                        <div class="col s12 m2">
+                            <div class="card bg-info text-light p-2">
+                                <p class="" id="date-2"></p>
+                                <h4 class="" >
+                                    <img class="" id="icon-2">
+                                    <span id="temp-2"></span> &deg;F
+                                </h4>
+                                <p class="mb-1">High: <span id="high-2"></span> &deg;F</p>
+                                <p class="mb-1">Low: <span id="low-2"></span> &deg;F</p>
+                                <p class="mb-1">Humidity: <span id="humidity-2"></span>%</p>
+                            </div>
+                        </div>
 
-                                <tr class="day-3">
-                                    <td>22nd</td>
-                                    <td>Sunny</td>
-                                    <td>Sunny</td>
-                                    <td>part cloudy</td>
-                                    <td>rainy</td>
-                                    <td>rainy</td>
-                                    <td>Sunny</td>
-                                </tr>
+                        <!-- day 3 -->
+                        <div class="col s-12 m2">
+                            <div class="card bg-info text-light p-2">
+                                <p class="" id="date-3"></p>
+                                <h4 class="">
+                                    <img class="" id="icon-3">
+                                    <span id="temp-3"></span> &deg;F
+                                </h4>
+                                <p class="mb-1">High: <span id="high-3"></span> &deg;F</p>
+                                <p class="mb-1">Low: <span id="low-3"></span> &deg;F</p>
+                                <p class="mb-1">Humidity: <span id="humidity-3"></span>%</p>
+                            </div>
+                        </div>
 
-                                <tr class="day-4">
-                                    <td>23rd</td>
-                                    <td>Rainy</td>
-                                    <td>Sunny</td>
-                                    <td>part cloudy</td>
-                                    <td>mostly cloudy</td>
-                                    <td>rainy</td>
-                                    <td>Rainy</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!-- day 4 -->
+                        <div class="col s-12 m2">
+                            <div class="card bg-info text-light p-2">
+                                <p class="" id="date-4"></p>
+                                <h4 class="align-middle" >
+                                    <img class="" id="icon-4">
+                                    <span id="temp-4"></span> &deg;F
+                                </h4>
+                                <p class="mb-1">High: <span id="high-4"></span> &deg;F</p>
+                                <p class="mb-1">Low: <span id="low-4"></span> &deg;F</p>
+                                <p class="mb-1">Humidity: <span id="humidity-4"></span>%</p>
+                            </div>
+                        </div>
+
+                         <!-- day 5 -->
+                         <div class="col s-12 m2">
+                            <div class="card bg-info text-light p-2">
+                                <p class="" id="date-5"></p>
+                                <h4 class="" >
+                                    <img class="" id="icon-5">
+                                    <span id="temp-4"></span> &deg;F
+                                </h4>
+                                <p class="mb-1">High: <span id="high-5"></span> &deg;F</p>
+                                <p class="mb-1">Low: <span id="low-5"></span> &deg;F</p>
+                                <p class="mb-1">Humidity: <span id="humidity5"></span>%</p>
+                            </div>
+                        </div>
+                       
 
                     </div>
 
