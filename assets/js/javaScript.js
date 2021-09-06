@@ -115,9 +115,52 @@ var showFlights = function (data) {
 
 
 		//appends flight info into table
-		flightTableBody.append(flightContainer)
-
-
+		flightTableBody.append(flightContainer);
 		
 	}
 }
+
+// Five day forecast of destination section
+// Using saved city name, execute a 5-day forecast get request from open weather api
+const apiKey = `f3c6f7687f7f43a162f3912305630533`;
+
+
+
+// Makes an array from local storage
+var fiveDayForecast = JSON.parse(localStorage.getItem('City Name')) || [];
+var fiveDayEl = $('#forecast-container')
+
+
+//When Search button is clicked
+$("#search-btn").on("click", function () {
+	//grabs city name 
+	if (!$(this).siblings('input').val()) {
+	  alert("Please input a city name")
+	  return
+	} else {
+	  var cityName = $(this).siblings('input').val()
+	}
+
+
+	fetchWeatherData(cityName)
+  });
+  var fetchWeatherData = function (cityName) {
+
+	//Sends fetch to openweather map
+	fetch(`https://api.openweathermap.org/data/2.5/forecast?idq=${cityName}
+	&appid${apiKey}`)
+	  .then(function (response) {
+		if (response.ok) {
+		  response.json().then(function (data) {
+			console.log(data)
+			//Five day forecast
+			FiveDayForecast(data)
+		  });
+		}
+	})
+}
+	
+    //Saves Seach into Array
+    fiveDayForecast.push(cityName)
+    //Pushes Array into localstorage 
+    saveSearch();
