@@ -6,7 +6,7 @@
 }
 
 .flight-info {
-    background-image: url(../images/airport-3511342_640.jpg);
+    background-color: rgb(255, 254, 254);
     background-size: cover;
 }
 
@@ -14,6 +14,8 @@
     background-image: url(../images/venice-3130323_1920.jpg);
     background-size: cover;
 }
+
+
 
 @media screen and (max-width: 575px) {
     .hero {
