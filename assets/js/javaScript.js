@@ -6,31 +6,33 @@ $("#search-btn").on("click", function () {
 	//empty out flight table where flights are displayed
 	$("#flight-container-info").empty();
 
+	//API Params
 	var currency = "USD"
 	var language = "en-US"
 	var country = "US"
-	//grabs outbound date
+
+	//grabs outbound date of form
 	var outboundDate = $("#outboundDate").val()
 	console.log(outboundDate)
 	if (outboundDate == "") {
 		alert("Please enter in a OutBound Date")
 		return
 	}
-	//grabs return date
+	//grabs return date of form
 	var returnDate = $('#returnDate').val()
 	console.log(returnDate)
 	if (returnDate == "") {
 		alert("Please enter in a Return Date")
 		return
 	}
-	//grabs origin
+	//grabs origin of form
 	var origin = $('#Origin').val()
 	console.log(origin)
 	if (origin == "") {
 		alert("Please enter in an origin")
 		return
 	}
-	//grabs destination
+	//grabs destination of form
 	var destination = $('#Destination').val()
 	console.log(destination)
 	if (destination == "") {
@@ -106,7 +108,7 @@ var showFlights = function (data) {
 		carrierName.textContent = airlineCarrier
 		flightContainer.append(carrierName);
 
-		//creates carrier name and adds to flight container
+		//creates price and adds to flight container
 		var flightPrice = document.createElement("td");
 		flightPrice.textContent = '$' + price + '.00'
 		flightContainer.append(flightPrice);
