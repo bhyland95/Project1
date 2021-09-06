@@ -96,63 +96,18 @@
                             <thead s6>
                                 <!--this will be static-->
                                 <tr>
-                                    <th>Origin - Destionaton</th>
-                                    <th>Take off - Arrival</th>
-                                    <th>Flight Duration
-                                        <!--(number of stops)-->
-                                    </th>
+                                    <th>Origin</th>
+                                    <th>Destination</th>
+                                    <th>Departure Time</th>
                                     <th>Airline</th>
-                                    <th>Class</th>
-                                    <!--this one may be left out for purpose of a MVP-->
+                                    <!--<th>Class</th>
+                                    this one may be left out for purpose of a MVP-->
                                     <th>Price
                                         <!--per traveler roundtrip or oneway-->
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <!--these are examples and should be dynamically created using returned information from skyscanner-->
-
-                                <tr class="hoverable">
-                                    <td>Salt Lake City (SLC)- Miami (MIA)</td>
-                                    <td>5:15pm - 11:49pm</td>
-                                    <td>4h 34m (nonstop)</td>
-                                    <td>Delta</td>
-                                    <td>Coach</td>
-                                    <td>$345 (Roundtrip per traveler)</td>
-                                </tr>
-
-                                <tr class="hoverable">
-                                    <td>Salt Lake City (SLC)- Miami (MIA)</td>
-                                    <td>3:56pm - 12:12am</td>
-                                    <td>6h 16m (1 stop)</td>
-                                    <td>Delta</td>
-                                    <td>Coach</td>
-                                    <td>$354 (Roundtrip per traveler)</td>
-                                </tr>
-                                <tr class="hoverable">
-                                    <td>Salt Lake City (SLC)- Miami (MIA)</td>
-                                    <td>12:00pm - 6:34pm</td>
-                                    <td>4h 34m (nonstop)</td>
-                                    <td>Delta</td>
-                                    <td>Coach</td>
-                                    <td>$345 (Roundtrip per traveler)</td>
-                                </tr>
-                                <tr class="hoverable">
-                                    <td>Salt Lake City (SLC)- Miami (MIA)</td>
-                                    <td>2:13pm - 7:12am +1</td>
-                                    <td>14h 59m (2 stops 5hr 45m (LAX) 1h 45m (PHX) )</td>
-                                    <td>American</td>
-                                    <td>Coach</td>
-                                    <td>$336 (Roundtrip per traveler)</td>
-                                </tr>
-                                <tr class="hoverable">
-                                    <td>Salt Lake City (SLC)- Miami (MIA)</td>
-                                    <td>12:00pm - 6:34pm</td>
-                                    <td>4h 34m (nonstop)</td>
-                                    <td>Delta</td>
-                                    <td>Coach</td>
-                                    <td>$345 (Roundtrip per traveler)</td>
-                                </tr>
+                            <tbody id="flight-container-info">
 
                             </tbody>
                         </table>
