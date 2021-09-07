@@ -139,7 +139,7 @@ function onlyUnique(value, index, self) {
 var unique = searchCityName.filter(onlyUnique);
 
 
-//When Search button is clicked
+// when 'Search' button is clicked
 $("#search-btn").on("click", function () {
 
 // empty out flight table where flights are displayed 
@@ -153,14 +153,14 @@ $("#forecast-container").empty();
 		return
 	}
 
-  //Sends fetch to openweather map
+// sends fetch to openweather map
   fetchWeatherData(cityName)
-  console.log(cityName)
+  //console.log(cityName)
 });
 
 var fetchWeatherData = function (cityName) {
   // console.log(cityName);
-  //Sends fetch to openweather map
+  // sends fetch to openweather map
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${apiKey}`)
     .then(function (response) {
       if (response.ok) {
@@ -179,8 +179,8 @@ var fetchWeatherData = function (cityName) {
 	// pushes array into localstorage 
         saveSearch(); 
 
-	}
-})
+		}
+	})
 }
 	
 // saves searches into local storage
@@ -190,10 +190,6 @@ var saveSearch = function () {
 
 // display five day forecast
 var FiveDayForecast = function (weather) {
-
-//clears out forecastEl div before adding info
-	//forecastEl.empty();
-	//document.querySelector('#forecast-title').textContent = "5-Day Forecast:";
 
   
 	for (i = 5; i < weather.list.length; i = i + 8) {
