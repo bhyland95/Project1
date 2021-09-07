@@ -70,7 +70,6 @@ var showFlights = function (data) {
 
 	for (var i = 0; i < data.Quotes.length; i++) {
 
-
 		for (let x = 0; x < data.Places.length; x++) {
 			// Grabs Origin Airport
 			if (data.Places[x].PlaceId === data.Quotes[i].OutboundLeg.OriginId) {
