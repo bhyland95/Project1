@@ -1,8 +1,26 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+/*main {
+    flex: 1 0 auto;
+}
+*/
 .hero {
     background-image: url(../images/seychelles-1730082_1280.jpg);
     height: 350px;
     background-size: cover;
     background-position: 0rem;
+}
+
+.hero-text {
+    color: white;
+    font-weight: bold;
 }
 
 .flight-info {
@@ -11,20 +29,54 @@
 }
 
 .background {
-    background-image: url(../images/venice-3130323_1920.jpg);
+    background-image: url(../images/texture-1504364_1920.jpg);
     background-size: cover;
 }
 
-
-
-@media screen and (max-width: 575px) {
-    .hero {
-        height: 150px;
-    }
+.input-field {
+    background-color: rgba(255, 255, 255, .5);
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 150px 2px 0px 2px;
 }
+
+.button-style {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(38, 166, 154, .75);
+    margin-top: 158px;
+}
+
+footer {
+    height: 75px;
+    position: sticky;
+    margin-top: auto;
+}
+
+footer h5 {
+    color: white;
+    text-align: center;
+}
+
 
 @media screen and (max-width: 768px) {
     .hero {
         background-position: center right;
+    }
+}
+
+
+@media screen and (max-width:599px) {
+    .input-field {
+        margin: 10px;
+    }
+    
+    .button-style {
+        margin: 5px;
+        
+    }
+
+    nav a {
+        line-height: 25px;
     }
 }
