@@ -1,5 +1,8 @@
 var flightTableBody = document.querySelector('#flight-container-info')
 var flightArray = [];
+var eventTableBody = document.querySelector('#event-container-info')
+
+
 
 var searchFlights = function () {
 	//empty out flight table where flights are displayed
@@ -16,21 +19,21 @@ var searchFlights = function () {
 
 	//grabs outbound date of form
 	var outboundDate = $("#outboundDate").val()
-	console.log(outboundDate)
+	
 	if (outboundDate == "") {
 		alert("Please enter in a OutBound Date")
 		return
 	}
 	//grabs return date of form
 	var returnDate = $('#returnDate').val()
-	console.log(returnDate)
+	
 	if (returnDate == "") {
 		alert("Please enter in a Return Date")
 		return
 	}
 	//grabs origin of form
 	var origin = $('#Origin').val()
-	console.log(origin)
+	
 	if (origin == "") {
 		alert("Please enter in an origin")
 		return
@@ -56,6 +59,8 @@ var searchFlights = function () {
 		.then(response => response.json())
 		.then(data => showFlights(data))
 
+	
+
 };
 
 //ON CLICK OF SUBMIT BUTTON
@@ -71,7 +76,7 @@ $("#search-btn").on("click", function () {
 
 var showFlights = function (data) {
 
-	console.log(data.Quotes.length)
+	
 
 	for (var i = 0; i < data.Quotes.length; i++) {
 
@@ -107,9 +112,9 @@ var showFlights = function (data) {
 	
 
 	//generates random number between 0 and number of flight options
-	console.log(flightArray)
+	
 	var randomNumber = Math.floor((Math.random() * flightArray.length) + 0);
-	console.log(randomNumber)
+	
 
 	var flightContainer = document.createElement("tr");
 	flightContainer.setAttribute('class', 'hoverable');
@@ -202,6 +207,13 @@ var returnFlight = function (data, flightContainer) {
 				var airlineCarrier = data.Carriers[y].Name;
 			}
 		}
+		var outboundDate = $("#outboundDate").val()
+		var returnDate = $('#returnDate').val()
+
+
+		//PREDITHQ API
+		eventsAPI(originAirport, outboundDate, returnDate)
+
 
 		//FIND WEATHER FOR DESTINATION CITY
 		fetchWeatherData(originCity)
@@ -262,7 +274,7 @@ var fetchWeatherData = function (cityName) {
 		.then(function (response) {
 			if (response.ok) {
 				response.json().then(function (data) {
-					console.log(data)
+					
 					//Five day forecast
 					FiveDayForecast(data)
 				});
@@ -270,7 +282,7 @@ var fetchWeatherData = function (cityName) {
 				// saves search into array
 
 				searchCityName.push(cityName)
-				console.log(cityName);
+				
 
 
 				// pushes array into localstorage 
@@ -286,24 +298,7 @@ var saveSearch = function () {
 }
 
 // display five day forecast
-var fiveDayForecast = function(forecast) { 
-    
-    for (var i = 1; i < 6; i++) {
-        var dateP = document.querySelector('#outboundDate' + i);
-        dateP.textContent = moment().add(i, 'days').format('M/D/YYYY');
 
-        var iconImg = document.querySelector('#icon-' + i);
-        var iconCode = forecast.daily[i].weather[0].icon;
-        iconImg.setAttribute('src', `http://openweathermap.org/img/wn/${iconCode}.png`);
-        iconImg.setAttribute('alt', forecast.daily[i].weather[0].main);
-
-        displayTemp('#temp-' + i, forecast.daily[i].temp.day);
-        displayTemp('#high-' + i, forecast.daily[i].temp.max);
-        displayTemp('#low-' + i, forecast.daily[i].temp.min);
-
-    
-    }
-}
 
 /*var FiveDayForecast = function (weather) {
 
@@ -334,7 +329,39 @@ var fiveDayForecast = function(forecast) {
 }*/
 
 
+//Function to populate events close to the destination airport
+var eventsAPI = function(Iata, Start, End){
+	console.log(Iata)
+	console.log(Start)
+	console.log(End)
 
+	fetch("https://predicthq.p.rapidapi.com/v1/events/?place.scope="+ Iata +"&active.gte="+ Start +"&active.lte="+ End +"&category=concerts,festivals,performing-arts,sports&sort=rank", {
+    "method": "GET",
+    "headers": {
+        "authorization": "Bearer vjK8YdM4-zWiaUZ5HqhW48f7vsVWdPaeklGDxUQf",
+        "x-rapidapi-host": "predicthq.p.rapidapi.com",
+        "x-rapidapi-key": "dae9f598fbmsh6d16f4dfa6f12a7p1e4403jsnee920035895e"
+    }
+})
+.then(response => response.json())
+.then(data => findEvents(data))
+}
+
+var findEvents = function(data){
+console.log(data)
+	var eventContainer = document.createElement("tr");
+	eventContainer.setAttribute('class', 'hoverable');
+
+	//creates origin flight info and adds to flight container
+	var eventName = document.createElement("td");
+	eventName.textContent = data.results[0].title
+	eventContainer.append(eventName);
+
+
+
+	eventTableBody.append(eventContainer)
+
+}
 
 
 
