@@ -1,6 +1,24 @@
 var flightTableBody = document.querySelector('#flight-container-info')
 var flightArray = [];
 var eventTableBody = document.querySelector('#event-container-info')
+var iataCodes = ["BHM", "DHN", "HSV", "MOB", "MGM", "MRI", "ANC", "ANI", "BET", "CDV", "SCC", "DLG", "FAI", "GST", "HOM", "JNU", "ENA", "KTN", "AKN", "KLW", "ADQ", "OTZ", "OME", "PSG", "KSM", "SIT", "UNK", "DUT", "BRW", "VDZ", "WRG", "YAK", "IFP", "FLG", "GCN", "AZA", "PGA", "PHX", "PRC", "TUS", "YUM", "XNA", "FSM", "LIT", "TXK", "ACV", "BFL", "BUR", "CCR", "FAT", "LGB", "LAX", "MMH", "MRY", "OAK", "ONT", "SNA", "PSP", "RDD", "SMF", "SAN", "SFO", "SJC", "SBP", "SBA", "SMX", "STS", "SCK", "ASE", "COS", "DEN", "DRO", "EGE", "GJT", "GUC", "HDN", "MTJ", "PUB", "BDL", "HVN", "DAB", "FLL", "RSW", "VPS", "GNV", "JAX", "EYW", "MLB", "MIA", "MCO", "ECP", "PNS", "PGD", "SFB", "SRQ", "PIE", "TLH", "TPA", "VRB", "PBI", "ABY", "ATL", "AGS", "BQK", "CSG", "MCN", "SAV", "VLD", "ITO", "HNL", "OGG", "KOA", "MKK", "LNY", "LIH", "BOI", "SUN", "IDA", "LWS", "PIH", "TWF", "BLV", "BMI", "CMI", "MDW", "ORD", "MWA", "MLI", "PIA", "UIN", "RFD", "SPI", "EVV", "FWA", "IND", "SBN", "CID", "DSM", "DBQ", "SUX", "ALO", "GCK", "HYS", "MHK", "SLN", "ICT", "CVG", "LEX", "SDF", "OWB", "PAH", "AEX", "BTR", "LFT", "LCH", "MLU", "MSY", "SHV", "BGR", "PWM", "PQI", "RKD", "BWI", "HGR", "SBY", "BED", "BOS", "HYA", "ACK", "PVC", "MVY", "ORH", "APN", "DTW", "ESC", "FNT", "GRR", "CMX", "IMT", "AZO", "LAN", "MQT", "MKG", "PLN", "MBS", "CIU", "TVC", "BJI", "BRD", "DLH", "HIB", "INL", "MSP", "RST", "STC", "GTR", "GPT", "JAN", "MEI", "TUP", "COU", "JLN", "MCI", "SGF", "STL", "BIL", "BZN", "BTM", "GTF", "HLN", "FCA", "MSO", "SDY", "WYS", "GRI", "LNK", "LBF", "OMA", "BFF", "BLD", "EKO", "LAS", "RNO", "LEB", "MHT", "PSM", "ACY", "EWR", "TTN", "ABQ", "HOB", "ROW", "SAF", "ALB", "BGM", "BUF", "ELM", "ISP", "ITH", "JFK", "LGA", "SWF", "IAG", "OGS", "PBG", "ROC", "SYR", "ART", "HPN", "AVL", "CLT", "USA", "FAY", "GSO", "PGV", "OAJ", "EWN", "RDU", "ILM", "BIS", "DIK", "FAR", "GFK", "JMS", "MOT", "XWA", "CAK", "CLE", "CMH", "LCK", "DAY", "TOL", "LAW", "OKC", "SWO", "TUL", "EUG", "MFR", "OTH", "PDX", "RDM", "ABE", "ERI", "MDT", "LBE", "PHL", "PIT", "SCE", "AVP", "IPT", "BID", "PVD", "WST", "CHS", "CAE", "FLO", "GSP", "HHH", "MYR", "ABR", "PIR", "RAP", "FSD", "ATY", "CHA", "TYS", "MEM", "BNA", "TRI", "ABI", "AMA", "AUS", "BPT", "BRO", "CLL", "CRP", "DAL", "DFW", "ELP", "HRL", "IAH", "HOU", "GRK", "LRD", "GGG", "LBB", "MFE", "MAF", "SJT", "SAT", "TYR", "ACT", "SPS", "CDC", "CNY", "OGD", "PVU", "SLC", "SGU", "VEL", "BTV", "CHO", "LYH", "PHF", "ORF", "RIC", "ROA", "SHD", "DCA", "IAD", "BLI", "ESD", "FRD", "PSC", "PUW", "BFI", "SEA", "GEG", "ALW", "EAT", "YKM", "CRW", "CKB", "HTS", "LWB", "ATW", "EAU", "GRB", "LSE", "MSN", "MKE", "CWA", "RHI", "CPR", "COD", "GCC", "JAC", "LAR", "RIW", "RKS", "SHR", "PPG", "GUM", "SPN", "ROP", "TIQ", "BQN", "NRR", "CPX", "PSE", "SJU", "SIG", "VQS", "STT", "STX"]
+
+//Initalizes Modals        
+$('.modal').modal();
+
+//now you can open modal from code
+
+
+
+
+
+//Grays out past dates
+var today = new Date().toISOString().split('T')[0];
+document.querySelector('#outboundDate').setAttribute('min', today);
+document.querySelector('#returnDate').setAttribute('min', today);
+
+
+
 
 
 
@@ -19,23 +37,24 @@ var searchFlights = function () {
 
 	//grabs outbound date of form
 	var outboundDate = $("#outboundDate").val()
-	
+
 	if (outboundDate == "") {
-		alert("Please enter in a OutBound Date")
+	
+		$('#OutboundBlank').modal('open');
 		return
 	}
 	//grabs return date of form
 	var returnDate = $('#returnDate').val()
-	
+
 	if (returnDate == "") {
-		alert("Please enter in a Return Date")
+		$('#ReturnBlank').modal('open');
 		return
 	}
 	//grabs origin of form
 	var origin = $('#Origin').val()
-	
+
 	if (origin == "") {
-		alert("Please enter in an origin")
+		$('#OriginBlank').modal('open');
 		return
 	}
 	//grabs destination of form
@@ -58,8 +77,11 @@ var searchFlights = function () {
 	})
 		.then(response => response.json())
 		.then(data => showFlights(data))
+		.catch(function () {
+			$('#OriginNotFound').modal('open');
+		});
 
-	
+
 
 };
 
@@ -73,13 +95,13 @@ $("#search-btn").on("click", function () {
 	//empty out event container
 	$('#event-container-info').empty()
 
-	
+
 
 });
 
 var showFlights = function (data) {
 
-	
+
 
 	for (var i = 0; i < data.Quotes.length; i++) {
 
@@ -94,7 +116,7 @@ var showFlights = function (data) {
 			if (data.Places[x].PlaceId === data.Quotes[i].OutboundLeg.DestinationId) {
 				var destinationAirport = data.Places[x].IataCode;
 				var destinationCity = data.Places[x].CityName;
-				
+
 			}
 		}
 
@@ -112,12 +134,12 @@ var showFlights = function (data) {
 		flightArray.push({ "OriginCity": originCity, "OriginAirport": originAirport, "DestinationCity": destinationCity, "DestinationAirport": destinationAirport, "Price": price, "CarrierName": airlineCarrier });
 	}
 
-	
+
 
 	//generates random number between 0 and number of flight options
-	
+
 	var randomNumber = Math.floor((Math.random() * flightArray.length) + 0);
-	
+
 
 	var flightContainer = document.createElement("tr");
 	flightContainer.setAttribute('class', 'hoverable');
@@ -303,7 +325,7 @@ var fetchWeatherData = function (cityName) {
 		.then(function (response) {
 			if (response.ok) {
 				response.json().then(function (data) {
-					
+
 					//Five day forecast
 					FiveDayForecast(data)
 				});
@@ -311,7 +333,7 @@ var fetchWeatherData = function (cityName) {
 				// saves search into array
 
 				searchCityName.push(cityName)
-				
+
 
 
 				// pushes array into localstorage 
@@ -367,51 +389,51 @@ var FiveDayForecast = function (weather) {
 
 
 //Function to populate events close to the destination airport
-var eventsAPI = function(Iata, Start, End){
+var eventsAPI = function (Iata, Start, End) {
 	console.log(Iata)
 	console.log(Start)
 	console.log(End)
 
-	fetch("https://predicthq.p.rapidapi.com/v1/events/?place.scope="+ Iata +"&active.gte="+ Start +"&active.lte="+ End +"&category=concerts,festivals,performing-arts,sports&sort=rank", {
-    "method": "GET",
-    "headers": {
-        "authorization": "Bearer vjK8YdM4-zWiaUZ5HqhW48f7vsVWdPaeklGDxUQf",
-        "x-rapidapi-host": "predicthq.p.rapidapi.com",
-        "x-rapidapi-key": "dae9f598fbmsh6d16f4dfa6f12a7p1e4403jsnee920035895e"
-    }
-})
-.then(response => response.json())
-.then(data => findEvents(data))
+	fetch("https://predicthq.p.rapidapi.com/v1/events/?place.scope=" + Iata + "&active.gte=" + Start + "&active.lte=" + End + "&category=concerts,festivals,performing-arts,sports&sort=rank", {
+		"method": "GET",
+		"headers": {
+			"authorization": "Bearer vjK8YdM4-zWiaUZ5HqhW48f7vsVWdPaeklGDxUQf",
+			"x-rapidapi-host": "predicthq.p.rapidapi.com",
+			"x-rapidapi-key": "dae9f598fbmsh6d16f4dfa6f12a7p1e4403jsnee920035895e"
+		}
+	})
+		.then(response => response.json())
+		.then(data => findEvents(data))
 }
 
-var findEvents = function(data){
-console.log(data)
-	
-	
-for (var i = 0; i < data.results.length; i++){
-
-	var eventContainer = document.createElement("tr");
-	eventContainer.setAttribute('class', 'hoverable');
-	
-	//creates eventName and adds to event row
-	var eventName = document.createElement("td");
-	eventName.textContent = data.results[i].title
-	eventContainer.append(eventName);
-
-	//creates eventName and adds to event row
-	var eventType = document.createElement("td");
-	eventType.textContent = data.results[i].category
-	eventContainer.append(eventType);
-
-	//creates eventName and adds to event row
-	var eventStart = document.createElement("td");
-	eventStart.textContent = data.results[i].start.slice(0,10);
-	eventContainer.append(eventStart);
+var findEvents = function (data) {
+	console.log(data)
 
 
-	//adds event row to table
-	eventTableBody.append(eventContainer)
-}
+	for (var i = 0; i < data.results.length; i++) {
+
+		var eventContainer = document.createElement("tr");
+		eventContainer.setAttribute('class', 'hoverable');
+
+		//creates eventName and adds to event row
+		var eventName = document.createElement("td");
+		eventName.textContent = data.results[i].title
+		eventContainer.append(eventName);
+
+		//creates eventName and adds to event row
+		var eventType = document.createElement("td");
+		eventType.textContent = data.results[i].category
+		eventContainer.append(eventType);
+
+		//creates eventName and adds to event row
+		var eventStart = document.createElement("td");
+		eventStart.textContent = data.results[i].start.slice(0, 10);
+		eventContainer.append(eventStart);
+
+
+		//adds event row to table
+		eventTableBody.append(eventContainer)
+	}
 }
 
 
