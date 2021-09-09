@@ -338,6 +338,7 @@ var FiveDayForecast = function (weather) {
 	for (i = 5; i < weather.list.length; i = i + 8) {
 		var forecastCard = document.querySelector("#forecast-container")
 		forecastCard.setAttribute('class', 's12 m2')
+		
 
 		//Gets date for each day
 		var forecastDate = document.createElement('h6')
@@ -347,22 +348,24 @@ var FiveDayForecast = function (weather) {
 		//Gets Image for each day
 		var forecastImage = document.createElement('img')
 		forecastImage.setAttribute('src', `https://openweathermap.org/img/wn/${weather.list[i].weather[0].icon}@2x.png`)
+		forecastImage.setAttribute('class', 'forecastImage')
 		forecastCard.append(forecastImage)
 
 		//Gets Temp for each day
 		var forecastTemp = document.createElement('p')
 		forecastTemp.textContent = 'Temp: ' + weather.list[i].main.temp + '°F'
+		forecastTemp.setAttribute('class', 'forecastTemp')
 		forecastCard.append(forecastTemp)
 
 		//Gets Wind for each day
-		var forecastWind = document.createElement('p')
-		forecastWind.textContent = 'Wind: ' + weather.list[i].wind.speed + 'MPH';
-		forecastCard.append(forecastWind)
+		//var forecastWind = document.createElement('p')
+		//forecastWind.textContent = 'Wind: ' + weather.list[i].wind.speed + 'MPH';
+		//forecastCard.append(forecastWind)
 
 		//Gets Humidity for each day
-		var forecastHumidity = document.createElement('p')
-		forecastHumidity.textContent = 'Humidity: ' + weather.list[i].main.humidity + '%'
-		forecastCard.append(forecastHumidity)
+		//var forecastHumidity = document.createElement('p')
+		//forecastHumidity.textContent = 'Humidity: ' + weather.list[i].main.humidity + '%'
+		//forecastCard.append(forecastHumidity)
 
 		//Appends Forecast Card to Forecast Container
 		forecastEl.append(forecastCard)

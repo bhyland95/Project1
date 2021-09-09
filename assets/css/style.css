@@ -47,6 +47,23 @@ body {
     margin-top: 158px;
 }
 
+h6 {
+    font-weight: bold;
+}
+
+.forecastImage {
+    width: 10%;
+    height: auto;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.forecastTemp {
+    border-bottom: 1px solid #000;
+}
+
 footer {
     height: 75px;
     position: sticky;
@@ -57,6 +74,8 @@ footer h5 {
     color: white;
     text-align: center;
 }
+
+
 
 
 @media screen and (max-width: 768px) {
