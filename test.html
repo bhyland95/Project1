@@ -1,0 +1,45 @@
+('class', 'card col-md-2 border forecastCard')
+
+                    <!-- Low Temp -->
+                    <div class="row">
+                        <div class="col s12">
+                            <p class="mb-1">Low: <span id="low-2"></span> &deg;F</p>
+                        </div>
+                    </div>
+
+                                        <!-- High Temp -->
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <p class="mb-1">High: <span id="high-2"></span> &deg;F</p>
+                                            </div>
+                                        </div>
+
+                                        <span id="temp-2"></span>
+
+                                        //Gets date for each day
+                                        var forecastDate = document.createElement('h6')
+                                        forecastDate.textContent = moment.unix(weather.list[i].dt).format("MMM D, YYYY");
+                                        forecastCard.append(forecastDate)
+                                
+                                        //Gets Image for each day
+                                        var forecastImage = document.createElement('img')
+                                        forecastImage.setAttribute('src', `https://openweathermap.org/img/wn/${weather.list[i].weather[0].icon}@2x.png`)
+                                        forecastCard.append(forecastImage)
+                                
+                                        //Gets Temp for each day
+                                        var forecastTemp = document.createElement('p')
+                                        forecastTemp.textContent = 'Temp: ' + weather.list[i].main.temp + '°F'
+                                        forecastCard.append(forecastTemp)
+                                
+                                        //Gets Wind for each day
+                                        var forecastWind = document.createElement('p')
+                                        forecastWind.textContent = 'Wind: ' + weather.list[i].wind.speed + 'MPH';
+                                        forecastCard.append(forecastWind)
+                                
+                                        //Gets Humidity for each day
+                                        var forecastHumidity = document.createElement('p')
+                                        forecastHumidity.textContent = 'Humidity: ' + weather.list[i].main.humidity + '%'
+                                        forecastCard.append(forecastHumidity)
+                                
+                                        //Appends Forecast Card to Forecast Container
+                                        forecastEl.append(forecastCard)

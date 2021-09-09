@@ -297,41 +297,14 @@ var returnFlight = function (data, flightContainer) {
 // makes array from local storage 
 var searchCityName = JSON.parse(localStorage.getItem('City Name')) || [];
 var forecastEl = $('#forecast-container')
-var forecastTitle = $('#forecast-title')
+//var forecastTitle = $('#forecast-title')
 
 var apiKey = "f3c6f7687f7f43a162f3912305630533"
 
 
-/* filters array for unique values
-function onlyUnique(value, index, self) {
-  return self.indexOf(value) === index;
-}
-
-var unique = searchCityName.filter(onlyUnique);
-*/
-
-/* when 'Search' button is clicked
-$("#search-btn").on("click", function () {
-
-	// empty out flight table where flights are displayed 
-	$("#forecast-container").empty();
-
-	// grabs cityName from destination form
-	var cityName = "New York"
-	// console.log(cityName);
-	if (cityName == "") {
-		alert("Please enter in a Destination")
-		return
-	}
-
+var fetchWeatherData = function (originCity) {
 	// sends fetch to openweather map
-	fetchWeatherData(cityName)
-	//console.log(cityName)
-});*/
-
-var fetchWeatherData = function (cityName) {
-	// sends fetch to openweather map
-	fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${apiKey}`)
+	fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${originCity}&units=imperial&appid=${apiKey}`)
 		.then(function (response) {
 			if (response.ok) {
 				response.json().then(function (data) {
@@ -342,15 +315,15 @@ var fetchWeatherData = function (cityName) {
 
 				// saves search into array
 
-				searchCityName.push(cityName)
-
+				searchCityName.push(originCity)
+				console.log(originCity);
 
 
 				// pushes array into localstorage 
 				saveSearch();
 
-			}
-		})
+		}
+	})
 }
 
 // saves searches into local storage
@@ -363,8 +336,8 @@ var FiveDayForecast = function (weather) {
 
 
 	for (i = 5; i < weather.list.length; i = i + 8) {
-		var forecastCard = document.createElement('div')
-		forecastCard.setAttribute('class', 'card col-md-2 border forecastCard')
+		var forecastCard = document.querySelector("#forecast-container")
+		forecastCard.setAttribute('class', 's12 m2')
 
 		//Gets date for each day
 		var forecastDate = document.createElement('h6')
