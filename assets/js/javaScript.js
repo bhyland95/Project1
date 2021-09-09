@@ -253,38 +253,12 @@ var forecastEl = $('#forecast-container')
 var forecastTitle = $('#forecast-title')
 
 var apiKey = "f3c6f7687f7f43a162f3912305630533"
-
-
-/* filters array for unique values
-function onlyUnique(value, index, self) {
-  return self.indexOf(value) === index;
-}
-
-var unique = searchCityName.filter(onlyUnique);
-*/
-
-/* when 'Search' button is clicked
-$("#search-btn").on("click", function () {
-
-	// empty out flight table where flights are displayed 
-	$("#forecast-container").empty();
-
-	// grabs cityName from destination form
-	var cityName = "New York"
-	// console.log(cityName);
-	if (cityName == "") {
-		alert("Please enter in a Destination")
-		return
-	}
-
-	// sends fetch to openweather map
-	fetchWeatherData(cityName)
-	//console.log(cityName)
-});*/
-
+// ${cityName}&${outboundDate}&units=imperial&appid=${apiKey}
+var outboundDate = $("#outboundDate").val();
+// ${cityName}&units=imperial&appid=${apiKey}
 var fetchWeatherData = function (cityName) {
 	// sends fetch to openweather map
-	fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${apiKey}`)
+	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + outboundDate + "&units=imperial&appid=" + apiKey)
 		.then(function (response) {
 			if (response.ok) {
 				response.json().then(function (data) {
@@ -312,7 +286,26 @@ var saveSearch = function () {
 }
 
 // display five day forecast
-var FiveDayForecast = function (weather) {
+var fiveDayForecast = function(forecast) { 
+    
+    for (var i = 1; i < 6; i++) {
+        var dateP = document.querySelector('#outboundDate' + i);
+        dateP.textContent = moment().add(i, 'days').format('M/D/YYYY');
+
+        var iconImg = document.querySelector('#icon-' + i);
+        var iconCode = forecast.daily[i].weather[0].icon;
+        iconImg.setAttribute('src', `http://openweathermap.org/img/wn/${iconCode}.png`);
+        iconImg.setAttribute('alt', forecast.daily[i].weather[0].main);
+
+        displayTemp('#temp-' + i, forecast.daily[i].temp.day);
+        displayTemp('#high-' + i, forecast.daily[i].temp.max);
+        displayTemp('#low-' + i, forecast.daily[i].temp.min);
+
+    
+    }
+}
+
+/*var FiveDayForecast = function (weather) {
 
 
 	for (i = 5; i < weather.list.length; i = i + 8) {
@@ -334,21 +327,11 @@ var FiveDayForecast = function (weather) {
 		forecastTemp.textContent = 'Temp: ' + weather.list[i].main.temp + '°F'
 		forecastCard.append(forecastTemp)
 
-		//Gets Wind for each day
-		var forecastWind = document.createElement('p')
-		forecastWind.textContent = 'Wind: ' + weather.list[i].wind.speed + 'MPH';
-		forecastCard.append(forecastWind)
-
-		//Gets Humidity for each day
-		var forecastHumidity = document.createElement('p')
-		forecastHumidity.textContent = 'Humidity: ' + weather.list[i].main.humidity + '%'
-		forecastCard.append(forecastHumidity)
-
 		//Appends Forecast Card to Forecast Container
 		forecastEl.append(forecastCard)
 	}
 
-}
+}*/
 
 
 
