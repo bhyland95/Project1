@@ -70,6 +70,9 @@ $("#search-btn").on("click", function () {
 	// empty out forecast container
 	$("#forecast-container").empty();
 
+	//empty out event container
+	$('#event-container-info').empty()
+
 	
 
 });
@@ -383,18 +386,32 @@ var eventsAPI = function(Iata, Start, End){
 
 var findEvents = function(data){
 console.log(data)
+	
+	
+for (var i = 0; i < data.results.length; i++){
+
 	var eventContainer = document.createElement("tr");
 	eventContainer.setAttribute('class', 'hoverable');
-
-	//creates origin flight info and adds to flight container
+	
+	//creates eventName and adds to event row
 	var eventName = document.createElement("td");
-	eventName.textContent = data.results[0].title
+	eventName.textContent = data.results[i].title
 	eventContainer.append(eventName);
 
+	//creates eventName and adds to event row
+	var eventType = document.createElement("td");
+	eventType.textContent = data.results[i].category
+	eventContainer.append(eventType);
+
+	//creates eventName and adds to event row
+	var eventStart = document.createElement("td");
+	eventStart.textContent = data.results[i].start.slice(0,10);
+	eventContainer.append(eventStart);
 
 
+	//adds event row to table
 	eventTableBody.append(eventContainer)
-
+}
 }
 
 
