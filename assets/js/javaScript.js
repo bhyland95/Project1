@@ -49,6 +49,11 @@ var searchFlights = function () {
 		$('#ReturnBlank').modal('open');
 		return
 	}
+
+	if (returnDate < outboundDate) {
+		$('#ReturnError').modal('open');
+		return
+	}
 	//grabs origin of form
 	var origin = $('#Origin').val()
 
@@ -87,6 +92,7 @@ var searchFlights = function () {
 //ON CLICK OF SUBMIT BUTTON
 $("#search-btn").on("click", function () {
 	searchFlights();
+
 
 	// empty out forecast container
 	$("#forecast-container").empty();
