@@ -1,6 +1,7 @@
 var flightTableBody = document.querySelector('#flight-container-info')
 var flightArray = [];
 
+
 var searchFlights = function () {
 	//empty out flight table where flights are displayed
 	$("#flight-container-info").empty();
