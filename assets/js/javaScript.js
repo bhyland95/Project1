@@ -265,12 +265,12 @@ var forecastEl = $('#forecast-container')
 var forecastTitle = $('#forecast-title')
 
 var apiKey = "f3c6f7687f7f43a162f3912305630533"
-// ${cityName}&${outboundDate}&units=imperial&appid=${apiKey}
+
 var outboundDate = $("#outboundDate").val();
-// ${cityName}&units=imperial&appid=${apiKey}
-var fetchWeatherData = function (cityName) {
+// get weather data
+var fetchWeatherData = function (originCity) {
 	// sends fetch to openweather map
-	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + outboundDate + "&units=imperial&appid=" + apiKey)
+	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + originCity + outboundDate + "&units=imperial&appid=" + apiKey)
 		.then(function (response) {
 			if (response.ok) {
 				response.json().then(function (data) {
@@ -281,10 +281,8 @@ var fetchWeatherData = function (cityName) {
 
 				// saves search into array
 
-				searchCityName.push(cityName)
+				searchCityName.push(originCity)
 				
-
-
 				// pushes array into localstorage 
 				saveSearch();
 
@@ -298,14 +296,12 @@ var saveSearch = function () {
 }
 
 // display five day forecast
-
-
-/*var FiveDayForecast = function (weather) {
-
+var FiveDayForecast = function (weather) {
 
 	for (i = 5; i < weather.list.length; i = i + 8) {
+
 		var forecastCard = document.createElement('div')
-		forecastCard.setAttribute('class', 'card col-md-2 border forecastCard')
+		forecastCard.setAttribute('class', 'row card m1 col s12 m2')
 
 		//Gets date for each day
 		var forecastDate = document.createElement('h6')
@@ -325,8 +321,7 @@ var saveSearch = function () {
 		//Appends Forecast Card to Forecast Container
 		forecastEl.append(forecastCard)
 	}
-
-}*/
+}
 
 
 //Function to populate events close to the destination airport
