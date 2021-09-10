@@ -1,5 +1,5 @@
-# Travel Wise Project 1
-## Travel Wise
+# Travel Bonanza Project 1 
+## Travel Bonanza
 * Travel application for Project 1 of UofU Coding Bootcamp
 * Team members:  Tyler Allison, Sheldon Zane Collins, Aimee Forbush and Blake Hyland 
 
