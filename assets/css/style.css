@@ -78,6 +78,10 @@ footer h5 {
     text-align: center;
 }
 
+.weather-info nav .brand-logo {
+    font-size: 1.38rem;
+}
+
 @media  screen and (max-width:1200px) {
     .input-label {
         margin: -15px;
