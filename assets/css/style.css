@@ -7,10 +7,6 @@ body {
     overflow: auto;
 }
 
-/*main {
-    flex: 1 0 auto;
-}
-*/
 .hero {
     background-image: url(../images/seychelles-1730082_1280.jpg);
     height: 350px;
@@ -37,14 +33,21 @@ body {
     background-color: rgba(255, 255, 255, .5);
     border: 1px solid white;
     border-radius: 5px;
-    margin: 150px 2px 0px 2px;
+    margin: 0px 2px;
+    top: 150px;
+    
+}
+
+.input-label {
+    margin: -3px;
+    
 }
 
 .button-style {
     border: 1px solid white;
     border-radius: 5px;
     background-color: rgba(38, 166, 154, .75);
-    margin-top: 158px;
+    top: 158px;
 }
 
 h6 {
@@ -75,27 +78,70 @@ footer h5 {
     text-align: center;
 }
 
+@media  screen and (max-width:1200px) {
+    .input-label {
+        margin: -15px;
+    }
+    
+}
 
+@media screen and (max-width:992px) {
+    .input-field {
+        margin: 14px;
+        top: 0;
+    }
+
+    .button-style {
+        margin: 0;
+        top: 22px;
+    }
+
+    .input-label {
+        margin: -2px;
+    }
+    
+}
 
 
 @media screen and (max-width: 768px) {
     .hero {
         background-position: center right;
     }
+
+    .input-field {
+        margin: 14px;
+        top: 0;
+    }
+
+    .button-style {
+        top: 23px;
+        margin: 0;
+    }
+
+    nav .brand-logo {
+        font-size: 2rem;
+    }
+
+
+
+    
 }
 
 
-@media screen and (max-width:599px) {
+@media screen and (max-width:601px) {
     .input-field {
         margin: 10px;
+        top: 0;
     }
-    
+
     .button-style {
-        margin: 5px;
+        margin: 0px;
+        top: 2px;
+        
         
     }
 
-    nav a {
-        line-height: 25px;
+    nav .brand-logo {
+        font-size: 1rem;
     }
 }

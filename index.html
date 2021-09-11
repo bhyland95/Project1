@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Travel Wise</title>
+    <title>Travel Bonanza!</title>
 </head>
 
 <body class="background">
@@ -26,7 +26,7 @@
         <div class="row">
 
             <div>
-                <div class=" col s12 m2 l2 xl2">
+                <div class=" col s12 m6 l2 xl2">
                     <p class="hero-text">Travel Bonanza changes the way you vacation. Choose a Departure location
                         and
                         Dates, We'll do the rest. </p>
@@ -34,23 +34,23 @@
             </div>
             <div class="center-align">
                 <div>
-                    <div class="input-field col s12 m2 l2 xl2 ">
+                    <div class="input-field col s12 m6 l2 xl2 ">
                         <input id="Origin" type="text" class="validate black-text autocomplete" placeholder="SLC">
-                        <label class="black-text" for="Origin">Leaving from: (Airport Code)</label>
+                        <label class="black-text input-label" for="Origin">Leaving from: (Airport Code)</label>
                     </div>
                 </div>
 
                 <div>
-                    <div class="input-field col s12 m2 l2 xl2">
+                    <div class="input-field col s12 m6 l2 xl2">
                         <input id="outboundDate" type="date" class="validate">
-                        <label for="outboundDate" class="black-text">Travel Date:</label>
+                        <label for="outboundDate" class="black-text input-label">Travel Date:</label>
                     </div>
                 </div>
 
                 <div>
-                    <div class=" input-field col s12 m2 l2 xl2 ">
+                    <div class=" input-field col s12 m6 l2 xl2 ">
                         <input id="returnDate" type="date" class="validate">
-                        <label for="returnDate" class="black-text">Return Date:</label>
+                        <label for="returnDate" class="black-text input-label">Return Date:</label>
                     </div>
                 </div>
 
@@ -173,42 +173,42 @@
 
 
 <!-- MODALS -->
-    <div class="modal" id="OutboundBlank">
-        <h4> Departure Date Error</h4>
-        <p>It appears that you have not entered in a date to depart on your trip. Please enter the date you would like to leave.</p>
-        <div class="modal-footer">
+    <div class="modal card-panel grey lighten-3" id="OutboundBlank">
+        <h4 class="brand-logo center blue white-text"> Departure Date Error</h4>
+        <p class="flow-text">You have not entered a valid departure date. Please enter the date you would like to leave.</p>
+        <div class="modal-footer grey lighten-3">
             <a href="#" class="modal-close btn blue">Close</a>
         </div>
     </div>
 
-    <div class="modal" id="ReturnBlank">
-        <h4> Return Date Error</h4>
-        <p>It appears that you have not entered in a date to return from your trip. Please enter the date you would like to return.</p>
-        <div class="modal-footer">
+    <div class="modal card-panel grey lighten-3" id="ReturnBlank">
+        <h4 class="brand-logo center blue white-text"> Return Date Error</h4>
+        <p class="flow-text"> You have not entered a valid date to return from your trip. Please enter the date you would like to return.</p>
+        <div class="modal-footer grey lighten-3">
             <a href="#" class="modal-close btn blue">Close</a>
         </div>
     </div>
 
-    <div class="modal" id="ReturnError">
-        <h4> Return Date Error</h4>
-        <p>It appears that you have not entered in a return date that happens sooner than your departure date. Please enter in a return date that occurs after your departure date. </p>
-        <div class="modal-footer">
+    <div class="modal card-panel grey lighten-3" id="ReturnError">
+        <h4 class="brand-logo center blue white-text"> Return Date Error</h4>
+        <p class="flow-text"> You have entered a return date that happens sooner than your departure date. Please enter a return date that occurs after your departure date. </p>
+        <div class="modal-footer grey lighten-3">
             <a href="#" class="modal-close btn blue">Close</a>
         </div>
 
-    <div class="modal" id="OriginBlank">
-        <h4> Airport Error</h4>
-        <p>It appears that you have not entered in an airport code. Please enter the airport code from where you would like to depart. </p>
-        <div class="modal-footer">
+    <div class="modal card-panel grey lighten-3" id="OriginBlank">
+        <h4 class="brand-logo center blue white-text"> Airport Error</h4>
+        <p class="flow-text"> You have not entered an airport code. Please enter the airport code of the airport you would like to depart. </p>
+        <div class="modal-footer grey lighten-3">
             <a href="#" class="modal-close btn blue">Close</a>
         </div>
         
     </div>
 
-    <div class="modal" id="OriginNotFound">
-        <h4> Airport Not Found</h4>
-        <p>We're sorry. We could not find the airport you are trying to depart from. Please try again.</p>
-        <div class="modal-footer">
+    <div class="modal card-panel grey lighten-3" id="OriginNotFound">
+        <h4 class="brand-logo center blue white-text"> Airport Not Found</h4>
+        <p class="flow-text">We're sorry. We could not find the airport you are trying to depart from. Please try again.</p>
+        <div class="modal-footer grey lighten-3">
             <a href="#" class="modal-close btn blue">Close</a>
         </div>
     </div>
