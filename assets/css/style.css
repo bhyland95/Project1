@@ -82,6 +82,11 @@ footer h5 {
     font-size: 1.38rem;
 }
 
+.modal {
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+}
+
 @media  screen and (max-width:1200px) {
     .input-label {
         margin: -15px;
