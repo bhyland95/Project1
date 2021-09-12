@@ -1,3 +1,12 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+}
+
 .hero {
     background-image: url(../images/seychelles-1730082_1280.jpg);
     height: 350px;
@@ -5,24 +14,143 @@
     background-position: 0rem;
 }
 
+.hero-text {
+    color: white;
+    font-weight: bold;
+}
+
 .flight-info {
-    background-image: url(../images/airport-3511342_640.jpg);
+    background-color: rgb(255, 254, 254);
     background-size: cover;
 }
 
 .background {
-    background-image: url(../images/venice-3130323_1920.jpg);
+    background-image: url(../images/photo-1591530194965-bdd34a444211.jpg);
     background-size: cover;
 }
 
-@media screen and (max-width: 575px) {
-    .hero {
-        height: 150px;
-    }
+.input-field {
+    background-color: rgba(255, 255, 255, .5);
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 0px 2px;
+    top: 150px;
+    
 }
+
+.input-label {
+    margin: -3px;
+    
+}
+
+.button-style {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(38, 166, 154, .75);
+    top: 158px;
+}
+
+h6 {
+    font-weight: bold;
+}
+
+.forecastImage {
+    width: 10%;
+    height: auto;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.forecastTemp {
+    border-bottom: 1px solid #000;
+}
+
+footer {
+    height: 75px;
+    position: sticky;
+    margin-top: auto;
+}
+
+footer h5 {
+    color: white;
+    text-align: center;
+}
+
+.weather-info nav .brand-logo {
+    font-size: 1.38rem;
+}
+
+.modal {
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+}
+
+@media  screen and (max-width:1200px) {
+    .input-label {
+        margin: -15px;
+    }
+    
+}
+
+@media screen and (max-width:992px) {
+    .input-field {
+        margin: 14px;
+        top: 0;
+    }
+
+    .button-style {
+        margin: 0;
+        top: 22px;
+    }
+
+    .input-label {
+        margin: -2px;
+    }
+    
+}
+
 
 @media screen and (max-width: 768px) {
     .hero {
         background-position: center right;
+    }
+
+    .input-field {
+        margin: 14px;
+        top: 0;
+    }
+
+    .button-style {
+        top: 23px;
+        margin: 0;
+    }
+
+    nav .brand-logo {
+        font-size: 2rem;
+    }
+
+
+
+    
+}
+
+
+@media screen and (max-width:601px) {
+    .input-field {
+        margin: 10px;
+        top: 0;
+    }
+
+    .button-style {
+        margin: 0px;
+        top: 2px;
+        
+        
+    }
+
+    nav .brand-logo {
+        font-size: 1rem;
     }
 }
