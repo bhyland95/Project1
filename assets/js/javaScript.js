@@ -383,7 +383,7 @@ var eventsAPI = function (Iata, Start, End) {
 	fetch("https://predicthq.p.rapidapi.com/v1/events/?place.scope=" + Iata + "&active.gte=" + Start + "&active.lte=" + End + "&category=concerts,festivals,performing-arts,sports&sort=rank", {
 		"method": "GET",
 		"headers": {
-			"authorization": "Bearer vjK8YdM4-zWiaUZ5HqhW48f7vsVWdPaeklGDxUQf",
+			"authorization": "Bearer RD6GMmMmEsEdmx1ujtviNnGxVuNOSHpi1m0gcvXp",
 			"x-rapidapi-host": "predicthq.p.rapidapi.com",
 			"x-rapidapi-key": "dae9f598fbmsh6d16f4dfa6f12a7p1e4403jsnee920035895e"
 		}
